@@ -9,6 +9,8 @@
 - 💡 **ควบคุม LED** - เปิด/ปิด LED ผ่านหน้าเว็บ
 - 🔄 **อัปเดตอัตโนมัติ** - ข้อมูลอัปเดตทุก 2 วินาที
 - 📱 **Responsive Design** - ใช้งานได้ทั้งคอมพิวเตอร์และมือถือ
+- 🎨 **Pastel Theme** - ธีมสีเขียวอ่อน พาสเทล ขาว และเหลือง นุ่มตา
+- 🧪 **Postman Collection** - ไฟล์สำหรับทดสอบ API ครบชุด
 
 ## 🛠️ อุปกรณ์ที่ต้องใช้
 
@@ -142,6 +144,28 @@ npm run dev:all
 - `POST /api/sensor-data` - ส่งข้อมูลเซ็นเซอร์
 - `GET /api/esp32/led-status` - เช็คสถานะ LED
 
+## 🧪 การทดสอบ API ด้วย Postman
+
+เราได้เตรียม Postman Collection ไว้สำหรับทดสอบ API ทุก endpoint แล้ว!
+
+### วิธีใช้งาน:
+1. เปิดโปรแกรม Postman
+2. คลิก **Import** แล้วเลือกไฟล์ `postman/ESP32-Dashboard-API.postman_collection.json`
+3. Collection จะถูก import พร้อมกับ endpoint ทั้งหมด 9 ตัว
+
+### Endpoints ที่มีใน Collection:
+- ✅ Health Check - ตรวจสอบสถานะ server
+- 📊 Get Sensor Data - ดูข้อมูล temperature/humidity ปัจจุบัน
+- 📈 Get Sensor History - ดูข้อมูลย้อนหลังสำหรับกราฟ
+- 💡 Get LED Status - ตรวจสอบสถานะ LED
+- 🟢 Turn LED ON - เปิด LED
+- 🔴 Turn LED OFF - ปิด LED
+- 📋 Get System Status - ดูสถานะระบบทั้งหมด
+- 📤 ESP32 Send Data - endpoint สำหรับ ESP32 ส่งข้อมูล
+- 📥 ESP32 Get LED Status - endpoint สำหรับ ESP32 เช็คสถานะ
+
+รายละเอียดเพิ่มเติมดูได้ที่ [`postman/README.md`](postman/README.md)
+
 ## 🔧 การแก้ไขปัญหา
 
 ### ESP32 เชื่อมต่อ WiFi ไม่ได้
@@ -176,7 +200,10 @@ DashboardDemoBasic/
 ├── src/
 │   ├── App.jsx                    # React main component
 │   ├── main.jsx                   # React entry point
-│   └── index.css                  # Stylesheet
+│   └── index.css                  # Stylesheet (Pastel theme)
+├── postman/
+│   ├── ESP32-Dashboard-API.postman_collection.json  # Postman collection
+│   └── README.md                  # Postman usage guide
 ├── package.json                   # Dependencies
 ├── vite.config.js                # Vite configuration
 ├── index.html                    # HTML template
