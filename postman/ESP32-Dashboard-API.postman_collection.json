@@ -1,0 +1,234 @@
+{
+"info": {
+"_postman_id": "esp32-dashboard-api",
+"name": "ESP32 Dashboard API",
+"description": "API collection for testing ESP32 IoT Dashboard endpoints",
+"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+},
+"item": [
+{
+"name": "Health Check",
+"request": {
+"method": "GET",
+"header": [],
+"url": {
+"raw": "http://localhost:5000/api/health",
+"protocol": "http",
+"host": [
+"localhost"
+],
+"port": "5000",
+"path": [
+"api",
+"health"
+]
+},
+"description": "Check if the API server is running and get system status"
+},
+"response": []
+},
+{
+"name": "Get Sensor Data",
+"request": {
+"method": "GET",
+"header": [],
+"url": {
+"raw": "http://localhost:5000/api/sensor-data",
+"protocol": "http",
+"host": [
+"localhost"
+],
+"port": "5000",
+"path": [
+"api",
+"sensor-data"
+]
+},
+"description": "Get current sensor data (temperature and humidity)"
+},
+"response": []
+},
+{
+"name": "Get Sensor History",
+"request": {
+"method": "GET",
+"header": [],
+"url": {
+"raw": "http://localhost:5000/api/sensor-history",
+"protocol": "http",
+"host": [
+"localhost"
+],
+"port": "5000",
+"path": [
+"api",
+"sensor-history"
+]
+},
+"description": "Get historical sensor data for charts (last 50 readings)"
+},
+"response": []
+},
+{
+"name": "Get LED Status",
+"request": {
+"method": "GET",
+"header": [],
+"url": {
+"raw": "http://localhost:5000/api/led-status",
+"protocol": "http",
+"host": [
+"localhost"
+],
+"port": "5000",
+"path": [
+"api",
+"led-status"
+]
+},
+"description": "Get current LED status (on/off)"
+},
+"response": []
+},
+{
+"name": "Turn LED ON",
+"request": {
+"method": "POST",
+"header": [
+{
+"key": "Content-Type",
+"value": "application/json"
+}
+],
+"body": {
+"mode": "raw",
+"raw": "{\n  \"status\": true\n}"
+},
+"url": {
+"raw": "http://localhost:5000/api/led-control",
+"protocol": "http",
+"host": [
+"localhost"
+],
+"port": "5000",
+"path": [
+"api",
+"led-control"
+]
+},
+"description": "Turn the LED ON (GPIO2)"
+},
+"response": []
+},
+{
+"name": "Turn LED OFF",
+"request": {
+"method": "POST",
+"header": [
+{
+"key": "Content-Type",
+"value": "application/json"
+}
+],
+"body": {
+"mode": "raw",
+"raw": "{\n  \"status\": false\n}"
+},
+"url": {
+"raw": "http://localhost:5000/api/led-control",
+"protocol": "http",
+"host": [
+"localhost"
+],
+"port": "5000",
+"path": [
+"api",
+"led-control"
+]
+},
+"description": "Turn the LED OFF (GPIO2)"
+},
+"response": []
+},
+{
+"name": "Get System Status",
+"request": {
+"method": "GET",
+"header": [],
+"url": {
+"raw": "http://localhost:5000/api/status",
+"protocol": "http",
+"host": [
+"localhost"
+],
+"port": "5000",
+"path": [
+"api",
+"status"
+]
+},
+"description": "Get complete system status including ESP32 connection, LED status, and data points"
+},
+"response": []
+},
+{
+"name": "ESP32 - Send Sensor Data",
+"request": {
+"method": "POST",
+"header": [
+{
+"key": "Content-Type",
+"value": "application/json"
+}
+],
+"body": {
+"mode": "raw",
+"raw": "{\n  \"temperature\": 25.5,\n  \"humidity\": 65.3\n}"
+},
+"url": {
+"raw": "http://localhost:5000/api/sensor-data",
+"protocol": "http",
+"host": [
+"localhost"
+],
+"port": "5000",
+"path": [
+"api",
+"sensor-data"
+]
+},
+"description": "Endpoint used by ESP32 to send sensor data to the server"
+},
+"response": []
+},
+{
+"name": "ESP32 - Get LED Status",
+"request": {
+"method": "GET",
+"header": [],
+"url": {
+"raw": "http://localhost:5000/api/esp32/led-status",
+"protocol": "http",
+"host": [
+"localhost"
+],
+"port": "5000",
+"path": [
+"api",
+"esp32",
+"led-status"
+]
+},
+"description": "Endpoint used by ESP32 to check LED status (returns 1 for ON, 0 for OFF)"
+},
+"response": []
+}
+],
+"variable": [
+{
+"key": "base_url",
+"value": "http://localhost:5000",
+"type": "string"
+}
+]
+}

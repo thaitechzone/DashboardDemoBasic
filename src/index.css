@@ -1,3 +1,4 @@
+/* Reset และ Base Styles */
 * {
   margin: 0;
   padding: 0;
@@ -21,6 +22,7 @@ body {
   flex-direction: column;
 }
 
+/* Dashboard Layout */
 .dashboard {
   max-width: 1400px;
   margin: 0 auto;
@@ -30,10 +32,28 @@ body {
   flex-direction: column;
 }
 
+/* Header */
 .header {
   text-align: center;
-  margin-bottom: 30px;
-  color: white;
+  margin-bottom: 35px;
+  background: linear-gradient(135deg, #ffffff 0%, #f9fdf9 50%, #f0f8f0 100%);
+  padding: 35px 30px;
+  border-radius: 24px;
+  box-shadow: 0 12px 48px rgba(45, 74, 45, 0.08), 
+              0 4px 16px rgba(144, 238, 144, 0.12);
+  border: 2px solid rgba(144, 238, 144, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #90EE90, #98FB98, #FFFF99, #F0FFF0);
 }
 
 .header h1 {
@@ -51,6 +71,7 @@ body {
   letter-spacing: 0.2px;
 }
 
+/* Dashboard Grid */
 .dashboard-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -117,26 +138,45 @@ body {
   border-color: rgba(76, 175, 80, 0.3);
 }
 
+/* Card Styles */
 .card {
-  background: rgba(255, 255, 255, 0.95);
+  background: linear-gradient(135deg, #ffffff 0%, #fdfefd 50%, #f9fcf9 100%);
+  border-radius: 20px;
+  padding: 28px;
+  box-shadow: 0 8px 32px rgba(45, 74, 45, 0.06), 
+              0 2px 12px rgba(144, 238, 144, 0.08),
+              inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  border: 1.5px solid rgba(144, 238, 144, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
   backdrop-filter: blur(10px);
-  border-radius: 15px;
-  padding: 25px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(45, 74, 45, 0.12), 
+              0 8px 24px rgba(144, 238, 144, 0.15),
+              inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  border-color: rgba(144, 238, 144, 0.35);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, #90EE90, #98FB98, #FFFF99);
+  border-radius: 20px 20px 0 0;
 }
 
 .card-header {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  gap: 14px;
 }
 
 .card-icon {
@@ -152,6 +192,45 @@ body {
   letter-spacing: -0.2px;
 }
 
+/* Temperature Card */
+.card.temperature::before {
+  background: linear-gradient(90deg, #FFE066, #FFEB99, #FFF8DC);
+}
+
+.card.temperature .card-icon {
+  color: #CC9900;
+}
+
+.card.temperature .sensor-value {
+  color: #B8860B;
+  text-shadow: 0 2px 8px rgba(184, 134, 11, 0.1);
+}
+
+/* Humidity Card */
+.card.humidity::before {
+  background: linear-gradient(90deg, #87CEEB, #B0E0E6, #E0F6FF);
+}
+
+.card.humidity .card-icon {
+  color: #4682B4;
+}
+
+.card.humidity .sensor-value {
+  color: #2E8B57;
+  text-shadow: 0 2px 8px rgba(46, 139, 87, 0.1);
+}
+
+/* LED Control Card */
+.card.led-controls::before {
+  background: linear-gradient(90deg, #98FB98, #90EE90, #F0FFF0);
+}
+
+/* Status Card */
+.card.status::before {
+  background: linear-gradient(90deg, #E6FFE6, #98FB98, #F0FFF0);
+}
+
+/* Sensor Values */
 .sensor-value {
   font-size: 3rem;
   font-weight: 600;
@@ -176,18 +255,27 @@ body {
   letter-spacing: 0.3px;
 }
 
+/* Status Indicators */
 .status-indicator {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-top: 15px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, rgba(240, 255, 240, 0.6), rgba(248, 255, 248, 0.4));
+  border-radius: 14px;
+  border: 1px solid rgba(144, 238, 144, 0.25);
+  font-size: 0.95rem;
+  color: #2d4a2d;
+  font-weight: 500;
+  backdrop-filter: blur(8px);
 }
 
 .status-dot {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  animation: pulse 2s infinite;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
 .status-dot.online {
@@ -199,9 +287,12 @@ body {
 }
 
 @keyframes pulse {
-  0% { opacity: 1; }
-  50% { opacity: 0.5; }
-  100% { opacity: 1; }
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(144, 238, 144, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(144, 238, 144, 0);
+  }
 }
 
 .led-controls {
@@ -209,7 +300,7 @@ body {
 }
 
 .led-status {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: 10px;
   margin: 20px 0;
@@ -246,9 +337,11 @@ body {
 }
 
 .led-indicator {
-  width: 16px;
-  height: 16px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
 }
 
 .led-indicator.on {
@@ -261,7 +354,34 @@ body {
 }
 
 .switch-container {
-  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  margin: 24px 0;
+}
+
+/* Switch Button */
+.switch-button {
+  background: linear-gradient(135deg, #90EE90, #98FB98);
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(144, 238, 144, 0.3);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.switch-button:hover {
+  background: linear-gradient(135deg, #7FDD7F, #85E085);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(144, 238, 144, 0.4);
+}
+
+.switch-button:active {
+  transform: translateY(0);
 }
 
 .chart-card {
@@ -271,15 +391,23 @@ body {
 }
 
 .chart-container {
-  margin-top: 20px;
+  margin-top: 24px;
+  padding: 24px;
+  background: linear-gradient(135deg, rgba(248, 255, 248, 0.6), rgba(240, 255, 240, 0.3));
+  border-radius: 18px;
+  border: 1px solid rgba(144, 238, 144, 0.2);
+  backdrop-filter: blur(8px);
 }
 
 .loading {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  color: #666;
+  height: 400px;
+  color: #2d4a2d;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .spinner {
@@ -289,6 +417,7 @@ body {
   border-top: 2px solid #4caf50;
   border-radius: 50%;
   animation: spin 1s linear infinite;
+  margin-bottom: 24px;
 }
 
 @keyframes spin {
