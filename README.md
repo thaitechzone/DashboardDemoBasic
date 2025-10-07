@@ -1,117 +1,117 @@
-🌱 Smart Farm Dashboard - คู่มือการติดตั้งและใช้งาน
-📋 ข้อมูลโครงการ
-Smart Farm Dashboard - ระบบตรวจสอบสภาพแวดล้อมเพื่อการเกษตรอัจฉริยะ
+# 🚀 Smart Farm Dashboard - คู่มือการใช้งานฉบับย่อ
 
-Frontend: React + Vite (Port 3001)
-Backend: Node.js + Express (Port 5000)
-API Testing: Postman Collection พร้อมใช้งาน
-Theme: Agriculture Pastel Colors with Prompt Font
-🚀 ขั้นตอนการติดตั้งใหม่
-1. Clone Repository
+## 📥 วิธีการติดตั้งแบบเร็ว (Copy & Paste)
+
+### สำหรับผู้ใช้ Windows (แนะนำ)
+```cmd
+# 1. Clone repository
 git clone https://github.com/thaitechzone/DashboardDemoBasic.git
+
+# 2. เข้าไปในโฟลเดอร์
 cd DashboardDemoBasic
-2. ติดตั้ง Dependencies
-# ติดตั้ง packages สำหรับ frontend
-npm install
 
-# ติดตั้ง packages สำหรับ backend (ถ้าจำเป็น)
-cd server
-npm install
-cd ..
-3. รันระบบ
-วิธีที่ 1: รันแยกกัน (แนะนำสำหรับ Development)
-# Terminal 1 - รัน Backend API
-cd server
-node server.js
-
-# Terminal 2 - รัน Frontend  
-npm run dev
-วิธีที่ 2: รันพร้อมกัน (ใช้ไฟล์ batch)
-# Windows
+# 3. รันระบบ (วิธีง่ายที่สุด)
 run-dashboard.bat
+```
 
-# หรือใช้ PowerShell script
-.\run-dashboard.ps1
-🛠️ ไฟล์สำหรับรันอัตโนมัติ
-สำหรับ Windows (.bat)
-ไฟล์: run-dashboard.bat
+### สำหรับผู้ใช้ PowerShell
+```powershell
+# รันคำสั่งเดียวจบ
+git clone https://github.com/thaitechzone/DashboardDemoBasic.git; cd DashboardDemoBasic; .\run-dashboard.ps1
+```
 
-สำหรับ PowerShell (.ps1)
-ไฟล์: run-dashboard.ps1
+### สำหรับผู้ใช้ Linux/macOS
+```bash
+# รันคำสั่งเดียวจบ  
+git clone https://github.com/thaitechzone/DashboardDemoBasic.git && cd DashboardDemoBasic && chmod +x run-dashboard.sh && ./run-dashboard.sh
+```
 
-🌐 การเข้าถึงระบบ
-Frontend Dashboard
-URL: http://localhost:3001
-Features:
-Real-time sensor monitoring
-Weather forecast (Nakhon Si Thammarat)
-Air Quality PM2.5 data
-LED control system
-Backend API
-URL: http://localhost:5000
-Health Check: http://localhost:5000/api/health
-Endpoints:
-GET /api/sensor-data - ข้อมูลเซ็นเซอร์
-GET/POST /api/led-control - ควบคุม LED
-GET /api/history - ประวัติข้อมูล
-API Testing
-Postman Collection: postman-collection/ESP32-Dashboard-API.postman_collection.json
-Environment: postman-collection/ESP32-Dashboard-Local.postman_environment.json
-📁 โครงสร้างโปรเจค
-DashboardDemoBasic/
-├── src/                    # Frontend React components
-│   ├── App.jsx            # Main dashboard component
-│   ├── index.css          # Styling with agriculture theme
-│   └── main.jsx           # Entry point
-├── server/                # Backend API
-│   └── server.js          # Express server with mock data
-├── postman-collection/    # API testing files
-│   ├── ESP32-Dashboard-API.postman_collection.json
-│   └── ESP32-Dashboard-Local.postman_environment.json
-├── public/                # Static assets
-├── package.json           # Frontend dependencies
-├── vite.config.js         # Vite configuration
-├── run-dashboard.bat      # Windows batch script
-├── run-dashboard.ps1      # PowerShell script
-└── README-SETUP.md        # This setup guide
-🔧 การแก้ไขปัญหาทั่วไป
-ปัญหา Port ถูกใช้งาน
-# หา process ที่ใช้ port 5000
+---
+
+## 🌐 การเข้าถึงระบบ
+
+| บริการ | URL | รายละเอียด |
+|--------|-----|------------|
+| **Dashboard** | `http://localhost:3001` หรือ `http://localhost:3002` | หน้าจอหลักแสดงข้อมูลเซ็นเซอร์ |
+| **API Server** | `http://localhost:5000` | Backend API |
+| **Health Check** | `http://localhost:5000/api/health` | ตรวจสอบสถานะระบบ |
+
+---
+
+## ⚡ คำสั่งด่วน
+
+### เริ่มระบบแบบแยกกัน (สำหรับ Developer)
+```bash
+# Terminal 1: Backend
+cd server && node server.js
+
+# Terminal 2: Frontend  
+npm run dev
+```
+
+### เริ่มระบบแบบพร้อมกัน
+```bash
+npm run dev:all
+```
+
+### ติดตั้ง Dependencies เพิ่มเติม
+```bash
+npm run setup
+```
+
+---
+
+## 🛠️ ไฟล์ที่สำคัญ
+
+- `run-dashboard.bat` - สำหรับ Windows CMD
+- `run-dashboard.ps1` - สำหรับ PowerShell  
+- `run-dashboard.sh` - สำหรับ Linux/macOS
+- `postman-collection/` - ไฟล์ทดสอบ API
+- `README-SETUP.md` - คู่มือละเอียด
+
+---
+
+## 🎯 Features หลัก
+
+✅ **Real-time Sensor Data** - อุณหภูมิ ความชื้น  
+✅ **Weather Forecast** - พยากรณ์อากาศ 3 วัน (นครศรีธรรมราช)  
+✅ **Air Quality PM2.5** - ข้อมูลคุณภาพอากาศ  
+✅ **LED Control** - ควบคุมไฟ On/Off  
+✅ **Agriculture Theme** - สีเขียวพาสเทลสำหรับงานเกษตร  
+✅ **Thai Font (Prompt)** - อ่านง่าย สวยงาม  
+✅ **Responsive Design** - รองรับมือถือ แท็บเล็ต  
+✅ **API Testing Ready** - Postman Collection พร้อมใช้  
+
+---
+
+## 🔧 การแก้ไขปัญหา
+
+### ปัญหา Port ถูกใช้งาน
+```cmd
+# หา process ที่ใช้ port
 netstat -ano | findstr :5000
 
-# ปิด process (แทนที่ PID ด้วยหมายเลขจริง)
-taskkill /PID <PID_NUMBER> /F
-ปัญหา Dependencies
-# ลบ node_modules และติดตั้งใหม่
-rm -rf node_modules
-rm package-lock.json
+# ปิด process  
+taskkill /PID <PID> /F
+```
+
+### ปัญหา npm install
+```bash
+# ลบและติดตั้งใหม่
+rm -rf node_modules package-lock.json
 npm install
-ปัญหา Hot Reload ไม่ทำงาน
-รีสตาร์ท development server
-ตรวจสอบว่าไฟล์ไม่มีข้อผิดพลาด syntax
-🎨 Features หลัก
-✅ Real-time Monitoring - อัปเดตข้อมูลทุก 2 วินาที
-✅ Agriculture Theme - สีเขียวพาสเทลเหมาะกับงานเกษตร
-✅ Weather Integration - พยากรณ์อากาศ 3 วัน นครศรีธรรมราช
-✅ Air Quality - ข้อมูล PM2.5 และมลพิษอากาศ
-✅ Responsive Design - รองรับหน้าจอทุกขนาด
-✅ Thai Typography - ใช้ฟอนต์ Prompt สำหรับภาษาไทย
-✅ API Testing - Postman Collection พร้อมใช้งาน
-👨‍💻 การพัฒนาต่อ
-เพิ่ม Sensor ใหม่
-แก้ไข server/server.js - เพิ่ม mock data
-อัปเดต src/App.jsx - เพิ่ม UI component
-ปรับ src/index.css - สไตล์ใหม่
-เชื่อมต่อ ESP32 จริง
-แก้ไข endpoint ใน server/server.js
-ตั้งค่า CORS สำหรับ ESP32 IP
-อัปเดต Postman collection
-Deploy Production
-Build frontend: npm run build
-ตั้งค่า reverse proxy (Nginx)
-ใช้ PM2 สำหรับ Node.js server
-📞 การติดต่อและสนับสนุน
-Repository: https://github.com/thaitechzone/DashboardDemoBasic
-Issues: สร้าง GitHub Issue สำหรับปัญหาหรือข้อเสนอแนะ
-License: MIT License
-อัปเดตล่าสุด: October 7, 2025
+```
+
+---
+
+## 📱 ใช้งานจริง
+
+1. **เปิด Dashboard:** http://localhost:3001
+2. **ดูข้อมูล Real-time:** เซ็นเซอร์อัปเดตทุก 2 วินาที  
+3. **ควบคุม LED:** คลิกปุ่ม Switch เพื่อเปิด/ปิดไฟ
+4. **ดูพยากรณ์อากาศ:** ส่วนล่างของ Dashboard
+5. **ตรวจสอบ PM2.5:** คุณภาพอากาศประจำวัน
+
+---
+
+*🌱 Ready to use สำหรับ Smart Farming Project!*
