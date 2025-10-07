@@ -7,7 +7,9 @@
     "build": "vite build",
     "preview": "vite preview",
     "server": "node server/server.js",
-    "dev:all": "concurrently \"npm run dev\" \"npm run server\""
+    "dev:all": "concurrently \"npm run dev\" \"npm run server\"",
+    "start": "npm run server",
+    "setup": "npm install && echo Setup completed! Run: npm run dev:all"
   },
   "dependencies": {
     "axios": "^1.6.0",

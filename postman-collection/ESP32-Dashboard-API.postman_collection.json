@@ -1,0 +1,160 @@
+{
+  "info": {
+    "name": "ESP32 Dashboard API",
+    "description": "Collection for testing ESP32 IoT Dashboard API endpoints",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/health",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "health"]
+        },
+        "description": "Check if the API server is running"
+      }
+    },
+    {
+      "name": "Get Current Sensor Data",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/sensor-data",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "sensor-data"]
+        },
+        "description": "Get current temperature and humidity data"
+      }
+    },
+    {
+      "name": "Get Sensor History",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/sensor-history",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "sensor-history"]
+        },
+        "description": "Get historical sensor data for charts (last 50 readings)"
+      }
+    },
+    {
+      "name": "Send Sensor Data (ESP32 Simulation)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"temperature\": 25.5,\n  \"humidity\": 65.2\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/sensor-data",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "sensor-data"]
+        },
+        "description": "Simulate ESP32 sending sensor data"
+      }
+    },
+    {
+      "name": "Get LED Status",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/led-status",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "led-status"]
+        },
+        "description": "Get current LED status"
+      }
+    },
+    {
+      "name": "Turn LED ON",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": true\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/led-control",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "led-control"]
+        },
+        "description": "Turn the LED on"
+      }
+    },
+    {
+      "name": "Turn LED OFF",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"status\": false\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/led-control",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "led-control"]
+        },
+        "description": "Turn the LED off"
+      }
+    },
+    {
+      "name": "ESP32 Get LED Status",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/esp32/led-status",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "esp32", "led-status"]
+        },
+        "description": "ESP32 endpoint to check LED status (returns 1 or 0)"
+      }
+    },
+    {
+      "name": "Get API Status",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/status",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "status"]
+        },
+        "description": "Get overall API status including ESP32 connection status"
+      }
+    }
+  ]
+}
