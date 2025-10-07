@@ -1,0 +1,212 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  color: #333;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.card-icon {
+  width: 24px;
+  height: 24px;
+  color: #667eea;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.sensor-value {
+  font-size: 3rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.temperature .sensor-value {
+  color: #e74c3c;
+}
+
+.humidity .sensor-value {
+  color: #3498db;
+}
+
+.sensor-unit {
+  font-size: 1.5rem;
+  color: #666;
+  margin-left: 5px;
+}
+
+.status-indicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.status-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.status-dot.online {
+  background: #2ecc71;
+}
+
+.status-dot.offline {
+  background: #e74c3c;
+}
+
+@keyframes pulse {
+  0% { opacity: 1; }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; }
+}
+
+.led-controls {
+  text-align: center;
+}
+
+.led-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: 500;
+}
+
+.led-status.on {
+  background: rgba(46, 204, 113, 0.1);
+  color: #27ae60;
+}
+
+.led-status.off {
+  background: rgba(231, 76, 60, 0.1);
+  color: #c0392b;
+}
+
+.led-indicator {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+
+.led-indicator.on {
+  background: #2ecc71;
+  box-shadow: 0 0 10px #2ecc71;
+}
+
+.led-indicator.off {
+  background: #e74c3c;
+}
+
+.switch-container {
+  margin: 20px 0;
+}
+
+.chart-card {
+  grid-column: 1 / -1;
+  min-height: 400px;
+}
+
+.chart-container {
+  margin-top: 20px;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #666;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error {
+  color: #e74c3c;
+  text-align: center;
+  padding: 20px;
+  background: rgba(231, 76, 60, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(231, 76, 60, 0.2);
+}

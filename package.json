@@ -1,0 +1,27 @@
+{
+  "name": "esp32-dashboard",
+  "version": "1.0.0",
+  "description": "ESP32 IoT Dashboard with Temperature, Humidity monitoring and LED control",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "server": "node server/server.js",
+    "dev:all": "concurrently \"npm run dev\" \"npm run server\""
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "recharts": "^2.8.0",
+    "axios": "^1.6.0",
+    "lucide-react": "^0.294.0",
+    "react-switch": "^7.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.1.1",
+    "vite": "^5.0.0",
+    "concurrently": "^8.2.2",
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  }
+}

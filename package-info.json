@@ -1,0 +1,23 @@
+{
+  "scripts": {
+    "install-deps": "npm install",
+    "setup": "npm install && echo Setup complete! Run 'npm run dev:all' to start"
+  },
+  "keywords": [
+    "esp32",
+    "iot",
+    "dashboard", 
+    "react",
+    "nodejs",
+    "dht22",
+    "temperature",
+    "humidity",
+    "led-control"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/esp32-dashboard.git"
+  }
+}
